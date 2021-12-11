@@ -1,6 +1,7 @@
 package adopet.project.api.controllers;
 
 import adopet.project.business.abstracts.AnimalService;
+import adopet.project.core.utilities.results.DataResult;
 import adopet.project.entities.concretes.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,12 @@ public class AnimalsController {
     }
 
     @GetMapping("/getall")
-    public List<Animal> getAll() {
+    public DataResult<List<Animal>> getAll() {
         return this.animalService.getAll();
     }
 
     @GetMapping("/getbyid")
-    public Animal getById(@RequestParam int animalId) {
+    public DataResult<Animal> getById(@RequestParam int animalId) {
         return this.animalService.getById(animalId);
     }
 }
