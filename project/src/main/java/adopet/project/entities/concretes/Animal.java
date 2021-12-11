@@ -1,5 +1,6 @@
 package adopet.project.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Table(name = "animals")
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","animals"})
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

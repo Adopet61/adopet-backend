@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface AnimalService {
     List<Animal> getAll();
+    Animal getById(int animalId);
 }

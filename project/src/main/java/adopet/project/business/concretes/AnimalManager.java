@@ -22,4 +22,9 @@ public class AnimalManager implements AnimalService {
     public List<Animal> getAll() {
         return this.animalDao.findAll();
     }
+
+    @Override
+    public Animal getById(int animalId) {
+        return this.animalDao.getById(animalId);
+    }
 }
