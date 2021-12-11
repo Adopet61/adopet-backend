@@ -19,12 +19,6 @@ public class Animal {
     @Column(name = "animal_id")
     private int animalId;
 
-    @Column(name = "type_id")
-    private int typeId;
-
-    @Column(name = "breed_id")
-    private int breedId;
-
     @Column(name = "animal_name")
     private String animalName;
 
@@ -39,4 +33,12 @@ public class Animal {
 
     @Column(name = "infertility_status")
     private String infertilityStatus;
+
+    @ManyToOne()
+    @JoinColumn(name = "type_id")
+    private AnimalType animalType;
+
+    @ManyToOne()
+    @JoinColumn(name = "breed_id")
+    private AnimalBreed animalBreed;
 }
