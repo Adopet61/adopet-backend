@@ -44,4 +44,23 @@ public class AnimalsController {
     public DataResult<List<Animal>> getByInfertilityStatus(@RequestParam String infertilityStatus) {
         return this.animalService.getByInfertilityStatus(infertilityStatus);
     }
+    @GetMapping("/getbyanimalnamecontains")
+    public DataResult<List<Animal>> getByAnimalNameContains(@RequestParam String animalName){
+        return this.animalService.getByAnimalNameContains(animalName);
+    }
+
+    @GetMapping("/getbyanimalnamestartswith")
+    public DataResult<List<Animal>> getByAnimalNameStartsWith(@RequestParam String animalName){
+        return this.animalService.getByAnimalNameStartsWith(animalName);
+    }
+
+    @GetMapping("/getallbypage")
+    public DataResult<List<Animal>> getall(int pageNo, int pageSize){
+        return this.animalService.getAll(pageNo,pageSize);
+    }
+
+    @GetMapping("/getalldesc")
+    public DataResult<List<Animal>> getAllSorted() {
+        return this.animalService.getAllSorted();
+    }
 }
