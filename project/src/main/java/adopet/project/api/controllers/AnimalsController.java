@@ -29,4 +29,19 @@ public class AnimalsController {
     public DataResult<Animal> getById(@RequestParam int animalId) {
         return this.animalService.getById(animalId);
     }
+
+    @GetMapping("/getbygender")
+    public DataResult<List<Animal>> getByGender(@RequestParam String gender) {
+        return this.animalService.getByGender(gender);
+    }
+
+    @GetMapping("/getbyyearofbirth")
+    public DataResult<List<Animal>> getByYearOfBirth(@RequestParam int yearOfBirth) {
+        return this.animalService.getByYearOfBirth(yearOfBirth);
+    }
+
+    @GetMapping("/getbyinfertilitystatus")
+    public DataResult<List<Animal>> getByInfertilityStatus(@RequestParam String infertilityStatus) {
+        return this.animalService.getByInfertilityStatus(infertilityStatus);
+    }
 }

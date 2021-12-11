@@ -29,4 +29,22 @@ public class AnimalManager implements AnimalService {
     public DataResult<Animal> getById(int animalId) {
         return new SuccessDataResult<Animal>(this.animalDao.getById(animalId),"animalId'ye göre data listelendi");
     }
+
+    @Override
+    public DataResult<List<Animal>> getByGender(String gender) {
+        return new SuccessDataResult<List<Animal>>
+                (this.animalDao.getByGender(gender),"Cinsiyete göre data listelendi");
+    }
+
+    @Override
+    public DataResult<List<Animal>> getByYearOfBirth(int yearOfBirth) {
+        return new SuccessDataResult<List<Animal>>
+                (this.animalDao.getByYearOfBirth(yearOfBirth),"Doğum yılına göre listelendi");
+    }
+
+    @Override
+    public DataResult<List<Animal>> getByInfertilityStatus(String infertilityStatus) {
+        return new SuccessDataResult<List<Animal>>
+                (this.animalDao.getByInfertilityStatus(infertilityStatus), "Kısırlık durumuna göre listelendi");
+    }
 }
