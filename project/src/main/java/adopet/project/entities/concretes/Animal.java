@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "animals")
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","animals"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,10 +33,6 @@ public class Animal {
 
     @Column(name = "infertility_status")
     private String infertilityStatus;
-
-    @ManyToOne()
-    @JoinColumn(name = "type_id")
-    private AnimalType animalType;
 
     @ManyToOne()
     @JoinColumn(name = "breed_id")

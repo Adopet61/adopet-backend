@@ -40,26 +40,27 @@ public class AnimalsController {
         return this.animalService.getByYearOfBirth(yearOfBirth);
     }
 
-    @GetMapping("/getbyinfertilitystatus")
+    @GetMapping("/getByInfertilityStatus")
     public DataResult<List<Animal>> getByInfertilityStatus(@RequestParam String infertilityStatus) {
         return this.animalService.getByInfertilityStatus(infertilityStatus);
     }
-    @GetMapping("/getbyanimalnamecontains")
+
+    @GetMapping("/getByAnimalNameContains")
     public DataResult<List<Animal>> getByAnimalNameContains(@RequestParam String animalName){
         return this.animalService.getByAnimalNameContains(animalName);
     }
 
-    @GetMapping("/getbyanimalnamestartswith")
+    @GetMapping("/getByAnimalNameStartsWith")
     public DataResult<List<Animal>> getByAnimalNameStartsWith(@RequestParam String animalName){
         return this.animalService.getByAnimalNameStartsWith(animalName);
     }
 
-    @GetMapping("/getallbypage")
+    @GetMapping("/getAllByPage")
     public DataResult<List<Animal>> getall(int pageNo, int pageSize){
         return this.animalService.getAll(pageNo,pageSize);
     }
 
-    @GetMapping("/getalldesc")
+    @GetMapping("/getAllDesc")
     public DataResult<List<Animal>> getAllSorted() {
         return this.animalService.getAllSorted();
     }

@@ -1,5 +1,6 @@
 package adopet.project.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","animals"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class AnimalType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +24,7 @@ public class AnimalType {
     @Column(name = "type_name")
     private String typeName;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "animalType")
-    private List<Animal> animals;
+    private List<AnimalBreed> animalBreeds;
 }

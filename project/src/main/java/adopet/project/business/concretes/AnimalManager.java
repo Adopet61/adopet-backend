@@ -2,6 +2,7 @@ package adopet.project.business.concretes;
 
 import adopet.project.business.abstracts.AnimalService;
 import adopet.project.core.utilities.results.DataResult;
+import adopet.project.core.utilities.results.ErrorDataResult;
 import adopet.project.core.utilities.results.SuccessDataResult;
 import adopet.project.dataAccess.abstracts.AnimalDao;
 import adopet.project.entities.concretes.Animal;
@@ -35,20 +36,33 @@ public class AnimalManager implements AnimalService {
 
     @Override
     public DataResult<List<Animal>> getByGender(String gender) {
-        return new SuccessDataResult<List<Animal>>
-                (this.animalDao.getByGender(gender),"Cinsiyete göre data listelendi");
+        if (this.animalDao.getByGender(gender).isEmpty()){
+            return new ErrorDataResult<List<Animal>>("Cinsiyeti yanlış yazdınız. Male ya da Female olarak yazınız");
+        }else {
+            return new SuccessDataResult<List<Animal>>
+                    (this.animalDao.getByGender(gender), "Cinsiyete göre data listelendi");
+        }
     }
 
     @Override
     public DataResult<List<Animal>> getByYearOfBirth(int yearOfBirth) {
-        return new SuccessDataResult<List<Animal>>
-                (this.animalDao.getByYearOfBirth(yearOfBirth),"Doğum yılına göre listelendi");
+        if (this.animalDao.getByYearOfBirth(yearOfBirth).isEmpty()){
+            return new ErrorDataResult<List<Animal>>("Bu yılda doğan kayıt yoktur");
+        }else {
+            return new SuccessDataResult<List<Animal>>
+                    (this.animalDao.getByYearOfBirth(yearOfBirth), "Doğum yılına göre listelendi");
+        }
     }
 
     @Override
     public DataResult<List<Animal>> getByInfertilityStatus(String infertilityStatus) {
-        return new SuccessDataResult<List<Animal>>
-                (this.animalDao.getByInfertilityStatus(infertilityStatus), "Kısırlık durumuna göre listelendi");
+        if (this.animalDao.getByInfertilityStatus(infertilityStatus).isEmpty()){
+            return new ErrorDataResult<List<Animal>>
+                    ("Kısırlık durumunu yanlış yazdınız. Kısır veya Kısır değil diyerek aratabilirsiniz");
+        }else {
+            return new SuccessDataResult<List<Animal>>
+                    (this.animalDao.getByInfertilityStatus(infertilityStatus), "Kısırlık durumuna göre listelendi");
+        }
     }
 
     @Override
@@ -65,13 +79,21 @@ public class AnimalManager implements AnimalService {
 
     @Override
     public DataResult<List<Animal>> getByAnimalNameContains(String animalName) {
-        return new SuccessDataResult<List<Animal>>
-                (this.animalDao.getByAnimalNameContains(animalName),"İçinde geçen isime göre data listelendi.");
+        if (this.animalDao.getByAnimalNameContains(animalName).isEmpty()){
+            return new ErrorDataResult<List<Animal>>("İçinde aradığınız kelime geçen veri yoktur");
+        }else {
+            return new SuccessDataResult<List<Animal>>
+                    (this.animalDao.getByAnimalNameContains(animalName), "İçinde geçen kelimeye göre data listelendi");
+        }
     }
 
     @Override
     public DataResult<List<Animal>> getByAnimalNameStartsWith(String animalName) {
-        return new SuccessDataResult<List<Animal>>
-                (this.animalDao.getByAnimalNameStartsWith(animalName), "Adı şununla başlayan data listelendi.");
+        if (this.animalDao.getByAnimalNameStartsWith(animalName).isEmpty()) {
+            return new ErrorDataResult<List<Animal>>("Adı yazdığınız kelime ile başlayan veri yoktur");
+        }else {
+            return new SuccessDataResult<List<Animal>>
+                    (this.animalDao.getByAnimalNameStartsWith(animalName), "Adı yazdığınızla başlayan data listelendi");
+        }
     }
 }
