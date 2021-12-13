@@ -6,25 +6,21 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
 @Data
+@Entity
+@Table(name = "images")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "animal_vaccines")
-public class AnimalVaccine {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "animal_vaccines_id")
-    private int animalVaccineId;
+    @Column(name = "image_id")
+    private int imageId;
 
-    @Column(name = "vaccination_date")
-    private String vaccinationDate;
+    @Column(name = "image_url")
+    private String url;
 
-    @ManyToOne()
-    @JoinColumn(name = "vaccine_id")
-    private Vaccine vaccine;
-
-    @ManyToOne()
+    @OneToOne()
     @JoinColumn(name = "animal_id")
     private Animal animal;
 }
