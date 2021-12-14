@@ -96,4 +96,24 @@ public class AnimalManager implements AnimalService {
                     (this.animalDao.getByAnimalNameStartsWith(animalName), "Adı yazdığınızla başlayan data listelendi");
         }
     }
+
+    @Override
+    public DataResult<List<Animal>> getByAnimalBreed_AnimalType_TypeId(int typeId) {
+        if (this.animalDao.getByAnimalBreed_AnimalType_TypeId(typeId).isEmpty()) {
+            return new ErrorDataResult<List<Animal>>("Girdiğiniz sayıda hayvan türü yoktur");
+        }else {
+            return new SuccessDataResult<List<Animal>>
+                    (this.animalDao.getByAnimalBreed_AnimalType_TypeId(typeId), "Türüne göre hayvanlar listelendi");
+        }
+    }
+
+    @Override
+    public DataResult<List<Animal>> getByAnimalBreed_BreedId(int breedId) {
+        if (this.animalDao.getByAnimalBreed_BreedId(breedId).isEmpty()) {
+            return new ErrorDataResult<List<Animal>>("Girdiğiniz sayıdaki ırka ait hayvan kaydı yoktur");
+        }else {
+            return new SuccessDataResult<List<Animal>>
+                    (this.animalDao.getByAnimalBreed_BreedId(breedId), "Irklara göre hayvanlar listelendi");
+        }
+    }
 }

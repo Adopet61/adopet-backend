@@ -64,4 +64,14 @@ public class AnimalsController {
     public DataResult<List<Animal>> getAllSorted() {
         return this.animalService.getAllSorted();
     }
+
+    @GetMapping("/getByTypeId")
+    public DataResult<List<Animal>> getByAnimalBreed_AnimalType_TypeId(@RequestParam int typeId) {
+        return this.animalService.getByAnimalBreed_AnimalType_TypeId(typeId);
+    }
+
+    @GetMapping("/getByBreedId")
+    public DataResult<List<Animal>> getByAnimalBreed_BreedId(@RequestParam int breedId) {
+        return this.animalService.getByAnimalBreed_BreedId(breedId);
+    }
 }

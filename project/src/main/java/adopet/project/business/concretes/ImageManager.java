@@ -6,6 +6,7 @@ import adopet.project.core.utilities.results.ErrorDataResult;
 import adopet.project.core.utilities.results.SuccessDataResult;
 import adopet.project.dataAccess.abstracts.ImageDao;
 import adopet.project.entities.concretes.Image;
+import adopet.project.entities.dtos.AnimalWithImageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +35,10 @@ public class ImageManager implements ImageService {
             return new SuccessDataResult<List<Image>>
                     (this.imageDao.getByImageId(imageId), "Id'sine göre resim listelendi");
         }
+    }
+
+    @Override
+    public DataResult<List<AnimalWithImageDto>> getAnimalWithImageUrl() {
+        return new SuccessDataResult<List<AnimalWithImageDto>>(this.imageDao.getAnimalWithImageUrl(),"Data listelendi");
     }
 }

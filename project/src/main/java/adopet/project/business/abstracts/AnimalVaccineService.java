@@ -5,6 +5,5 @@ import adopet.project.entities.concretes.AnimalVaccine;
 
 import java.util.List;
 
-public interface AnimalVaccineService {
-    DataResult<List<AnimalVaccine>> getAll();
+public interface AnimalVaccineService extends BaseEntityService<AnimalVaccine>{
 }

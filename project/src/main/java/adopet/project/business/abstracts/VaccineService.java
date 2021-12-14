@@ -5,7 +5,6 @@ import adopet.project.entities.concretes.Vaccine;
 
 import java.util.List;
 
-public interface VaccineService {
-    DataResult<List<Vaccine>> getAll();
+public interface VaccineService extends BaseEntityService<Vaccine>{
     DataResult<List<Vaccine>> getByVaccineId(int vaccineId);
 }
