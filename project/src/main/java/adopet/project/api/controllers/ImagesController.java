@@ -2,10 +2,12 @@ package adopet.project.api.controllers;
 
 import adopet.project.business.abstracts.ImageService;
 import adopet.project.core.utilities.results.DataResult;
+import adopet.project.core.utilities.results.Result;
 import adopet.project.entities.concretes.Image;
 import adopet.project.entities.dtos.AnimalWithImageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -34,5 +36,15 @@ public class ImagesController {
     @GetMapping("/getAnimalWithImageUrl")
     public DataResult<List<AnimalWithImageDto>> getAnimalWithImageUrl(){
         return this.imageService.getAnimalWithImageUrl();
+    }
+
+    @PostMapping("/upload")
+    public Result upload(@RequestParam int animalId, @RequestPart("file") MultipartFile file) {
+        return this.imageService.upload(animalId, file);
+    }
+
+    @DeleteMapping("/delete")
+    public Result delete(@RequestParam int imageId) {
+        return imageService.delete(imageId);
     }
 }
