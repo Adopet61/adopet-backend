@@ -26,7 +26,7 @@ public class AnimalBreedsController {
     }
 
     @GetMapping("/getByBreedId")
-    public DataResult<List<AnimalBreed>> getByBreedId(@RequestParam int breedId) {
+    public DataResult<AnimalBreed> getByBreedId(@RequestParam int breedId) {
         return this.animalBreedService.getByBreedId(breedId);
     }
 

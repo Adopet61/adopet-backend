@@ -28,11 +28,11 @@ public class AnimalBreedManager implements AnimalBreedService {
     }
 
     @Override
-    public DataResult<List<AnimalBreed>> getByBreedId(int breedId) {
-        if (this.animalBreedDao.getByBreedId(breedId).isEmpty()) {
-            return new ErrorDataResult<List<AnimalBreed>>("Girdiğiniz sayıda hayvan ırkı yoktur");
+    public DataResult<AnimalBreed> getByBreedId(int breedId) {
+        if (this.animalBreedDao.findById(breedId).isEmpty()) {
+            return new ErrorDataResult<AnimalBreed>("Girdiğiniz sayıda hayvan ırkı yoktur");
         }else {
-            return new SuccessDataResult<List<AnimalBreed>>
+            return new SuccessDataResult<AnimalBreed>
                     (this.animalBreedDao.getByBreedId(breedId), "Id'sine göre ırk listelendi");
         }
     }

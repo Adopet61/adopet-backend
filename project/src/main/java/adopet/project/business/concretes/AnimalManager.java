@@ -31,7 +31,11 @@ public class AnimalManager implements AnimalService {
 
     @Override
     public DataResult<Animal> getById(int animalId) {
-        return new SuccessDataResult<Animal>(this.animalDao.getById(animalId),"animalId'ye göre data listelendi");
+        if (this.animalDao.findById(animalId).isEmpty()){
+            return new ErrorDataResult<Animal>("Bu Id'ye ait bir kayıt yoktur");
+        }else {
+            return new SuccessDataResult<Animal>(this.animalDao.getById(animalId), "animalId'ye göre data listelendi");
+        }
     }
 
     @Override

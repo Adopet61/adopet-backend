@@ -27,7 +27,7 @@ public class ImagesController {
     }
 
     @GetMapping("/getByImageId")
-    public DataResult<List<Image>> getByImageId(@RequestParam int imageId) {
+    public DataResult<Image> getByImageId(@RequestParam int imageId) {
         return this.imageService.getByImageId(imageId);
     }
 

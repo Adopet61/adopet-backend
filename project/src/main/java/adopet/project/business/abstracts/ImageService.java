@@ -7,6 +7,6 @@ import adopet.project.entities.dtos.AnimalWithImageDto;
 import java.util.List;
 
 public interface ImageService extends BaseEntityService<Image>{
-    DataResult<List<Image>> getByImageId(int imageId);
+    DataResult<Image> getByImageId(int imageId);
     DataResult<List<AnimalWithImageDto>> getAnimalWithImageUrl();
 }

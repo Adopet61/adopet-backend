@@ -26,7 +26,7 @@ public class VaccinesController {
     }
 
     @GetMapping("/getByVaccineId")
-    public DataResult<List<Vaccine>> getByVaccineId(@RequestParam int vaccineId) {
+    public DataResult<Vaccine> getByVaccineId(@RequestParam int vaccineId) {
         return this.vaccineService.getByVaccineId(vaccineId);
     }
 }

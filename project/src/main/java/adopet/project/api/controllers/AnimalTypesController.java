@@ -26,7 +26,7 @@ public class AnimalTypesController {
     }
 
     @GetMapping("/getByTypeId")
-    public DataResult<List<AnimalType>> getByTypeId(@RequestParam int typeId) {
+    public DataResult<AnimalType> getByTypeId(@RequestParam int typeId) {
         return this.animalTypeService.getByTypeId(typeId);
     }
 

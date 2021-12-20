@@ -28,11 +28,11 @@ public class ImageManager implements ImageService {
     }
 
     @Override
-    public DataResult<List<Image>> getByImageId(int imageId) {
-        if (this.imageDao.getByImageId(imageId).isEmpty()) {
-            return new ErrorDataResult<List<Image>>("Girdiğiniz sayıda resim yoktur");
+    public DataResult<Image> getByImageId(int imageId) {
+        if (this.imageDao.findById(imageId).isEmpty()) {
+            return new ErrorDataResult<Image>("Girdiğiniz sayıda resim yoktur");
         }else {
-            return new SuccessDataResult<List<Image>>
+            return new SuccessDataResult<Image>
                     (this.imageDao.getByImageId(imageId), "Id'sine göre resim listelendi");
         }
     }

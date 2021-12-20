@@ -28,11 +28,11 @@ public class AnimalTypeManager implements AnimalTypeService {
     }
 
     @Override
-    public DataResult<List<AnimalType>> getByTypeId(int typeId) {
-        if (this.animalTypeDao.getByTypeId(typeId).isEmpty()) {
-            return new ErrorDataResult<List<AnimalType>>("Girdiğiniz sayıda hayvan türü yoktur");
+    public DataResult<AnimalType> getByTypeId(int typeId) {
+        if (this.animalTypeDao.findById(typeId).isEmpty()) {
+            return new ErrorDataResult<AnimalType>("Girdiğiniz sayıda hayvan türü yoktur");
         }else {
-            return new SuccessDataResult<List<AnimalType>>
+            return new SuccessDataResult<AnimalType>
                     (this.animalTypeDao.getByTypeId(typeId), "Id'sine göre tür listelendi");
         }
     }

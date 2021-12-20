@@ -27,11 +27,11 @@ public class VaccineManager implements VaccineService {
     }
 
     @Override
-    public DataResult<List<Vaccine>> getByVaccineId(int vaccineId) {
-        if (this.vaccineDao.getByVaccineId(vaccineId).isEmpty()) {
-            return new ErrorDataResult<List<Vaccine>>("Girdiğiniz sayıda aşı yoktur");
+    public DataResult<Vaccine> getByVaccineId(int vaccineId) {
+        if (this.vaccineDao.findById(vaccineId).isEmpty()) {
+            return new ErrorDataResult<Vaccine>("Girdiğiniz sayıda aşı yoktur");
         }else {
-            return new SuccessDataResult<List<Vaccine>>
+            return new SuccessDataResult<Vaccine>
                     (this.vaccineDao.getByVaccineId(vaccineId), "Id'sine göre aşı listelendi");
         }
     }

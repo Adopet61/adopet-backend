@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface AnimalBreedDao extends JpaRepository<AnimalBreed, Integer> {
-    List<AnimalBreed> getByBreedId(int breedId);
+    AnimalBreed getByBreedId(int breedId);
     List<AnimalBreed> getByAnimalType_TypeId(int typeId);
 }

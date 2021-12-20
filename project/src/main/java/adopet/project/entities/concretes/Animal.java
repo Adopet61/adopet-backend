@@ -28,7 +28,7 @@ public class Animal {
     private String description;
 
     @Column(name = "year_of_birth")
-    private int yearOfBirth;
+    private Integer yearOfBirth;
 
     @Column(name = "gender")
     private String gender;
