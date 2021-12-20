@@ -17,6 +17,6 @@ public interface AnimalService extends BaseEntityService<Animal>{
     DataResult<List<Animal>> getByAnimalNameContains(String animalName);
     DataResult<List<Animal>> getByAnimalNameStartsWith(String animalName);
 
-    DataResult<List<Animal>> getByAnimalBreed_AnimalType_TypeId(int typeId);
+    DataResult<List<Animal>> getByAnimalType_TypeId(int typeId);
     DataResult<List<Animal>> getByAnimalBreed_BreedId(int breedId);
 }

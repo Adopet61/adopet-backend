@@ -11,6 +11,6 @@ public interface AnimalDao  extends JpaRepository<Animal, Integer> {
     List<Animal> getByInfertilityStatus(String infertilityStatus);
     List<Animal> getByAnimalNameContains(String animalName);
     List<Animal> getByAnimalNameStartsWith(String animalName);
-    List<Animal> getByAnimalBreed_AnimalType_TypeId(int typeId);
+    List<Animal> getByAnimalType_TypeId(int typeId);
     List<Animal> getByAnimalBreed_BreedId(int breedId);
 }

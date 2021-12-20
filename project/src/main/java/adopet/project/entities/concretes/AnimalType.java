@@ -26,5 +26,9 @@ public class AnimalType {
 
     @JsonIgnore
     @OneToMany(mappedBy = "animalType")
+    private List<Animal> animals;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "animalType")
     private List<AnimalBreed> animalBreeds;
 }

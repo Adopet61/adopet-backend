@@ -102,12 +102,12 @@ public class AnimalManager implements AnimalService {
     }
 
     @Override
-    public DataResult<List<Animal>> getByAnimalBreed_AnimalType_TypeId(int typeId) {
-        if (this.animalDao.getByAnimalBreed_AnimalType_TypeId(typeId).isEmpty()) {
+    public DataResult<List<Animal>> getByAnimalType_TypeId(int typeId) {
+        if (this.animalDao.getByAnimalType_TypeId(typeId).isEmpty()) {
             return new ErrorDataResult<List<Animal>>("Girdiğiniz sayıda hayvan türü yoktur");
         }else {
             return new SuccessDataResult<List<Animal>>
-                    (this.animalDao.getByAnimalBreed_AnimalType_TypeId(typeId), "Türüne göre hayvanlar listelendi");
+                    (this.animalDao.getByAnimalType_TypeId(typeId), "Türüne göre hayvanlar listelendi");
         }
     }
 

@@ -37,6 +37,10 @@ public class Animal {
     private String infertilityStatus;
 
     @ManyToOne()
+    @JoinColumn(name = "type_id")
+    private AnimalType animalType;
+
+    @ManyToOne()
     @JoinColumn(name = "breed_id")
     private AnimalBreed animalBreed;
 

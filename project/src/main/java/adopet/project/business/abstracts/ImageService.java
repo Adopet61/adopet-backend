@@ -8,7 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-public interface ImageService extends BaseEntityService<Image>{
+public interface ImageService {
+    DataResult<List<Image>> getAll();
     DataResult<Image> getByImageId(int imageId);
     DataResult<List<AnimalWithImageDto>> getAnimalWithImageUrl();
     Result upload(int animalId, MultipartFile file);
