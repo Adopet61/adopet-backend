@@ -40,5 +40,4 @@ public class AnimalBreedsController {
         return this.animalBreedService.add(animalBreed);
 
     }
-    //deneme branch
 }
