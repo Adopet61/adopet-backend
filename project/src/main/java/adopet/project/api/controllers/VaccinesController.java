@@ -2,6 +2,7 @@ package adopet.project.api.controllers;
 
 import adopet.project.business.abstracts.VaccineService;
 import adopet.project.core.utilities.results.DataResult;
+import adopet.project.core.utilities.results.Result;
 import adopet.project.entities.concretes.Vaccine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,5 +29,9 @@ public class VaccinesController {
     @GetMapping("/getByVaccineId")
     public DataResult<Vaccine> getByVaccineId(@RequestParam int vaccineId) {
         return this.vaccineService.getByVaccineId(vaccineId);
+    }
+    @PostMapping("/add")
+    public Result add(@RequestBody Vaccine vaccine) {
+        return this.vaccineService.add(vaccine);
     }
 }

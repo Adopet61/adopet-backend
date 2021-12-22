@@ -1,9 +1,7 @@
 package adopet.project.business.concretes;
 
 import adopet.project.business.abstracts.AnimalService;
-import adopet.project.core.utilities.results.DataResult;
-import adopet.project.core.utilities.results.ErrorDataResult;
-import adopet.project.core.utilities.results.SuccessDataResult;
+import adopet.project.core.utilities.results.*;
 import adopet.project.dataAccess.abstracts.AnimalDao;
 import adopet.project.entities.concretes.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,5 +117,10 @@ public class AnimalManager implements AnimalService {
             return new SuccessDataResult<List<Animal>>
                     (this.animalDao.getByAnimalBreed_BreedId(breedId), "Irklara göre hayvanlar listelendi");
         }
+    }
+    @Override
+    public Result add(Animal animal) {
+        this.animalDao.save(animal);
+        return new SuccessResult("Ürün eklendi");
     }
 }

@@ -2,6 +2,7 @@ package adopet.project.api.controllers;
 
 import adopet.project.business.abstracts.AnimalService;
 import adopet.project.core.utilities.results.DataResult;
+import adopet.project.core.utilities.results.Result;
 import adopet.project.entities.concretes.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -73,5 +74,9 @@ public class AnimalsController {
     @GetMapping("/getByBreedId")
     public DataResult<List<Animal>> getByAnimalBreed_BreedId(@RequestParam int breedId) {
         return this.animalService.getByAnimalBreed_BreedId(breedId);
+    }
+    @PostMapping("/add")
+    public Result add(@RequestBody Animal animal) {
+        return this.animalService.add(animal);
     }
 }

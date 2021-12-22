@@ -1,9 +1,7 @@
 package adopet.project.business.concretes;
 
 import adopet.project.business.abstracts.VaccineService;
-import adopet.project.core.utilities.results.DataResult;
-import adopet.project.core.utilities.results.ErrorDataResult;
-import adopet.project.core.utilities.results.SuccessDataResult;
+import adopet.project.core.utilities.results.*;
 import adopet.project.dataAccess.abstracts.VaccineDao;
 import adopet.project.entities.concretes.Vaccine;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +32,10 @@ public class VaccineManager implements VaccineService {
             return new SuccessDataResult<Vaccine>
                     (this.vaccineDao.getByVaccineId(vaccineId), "Id'sine göre aşı listelendi");
         }
+    }
+    @Override
+    public Result add(Vaccine vaccine) {
+        this.vaccineDao.save(vaccine);
+        return new SuccessResult("Aşı eklendi");
     }
 }
