@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -18,7 +19,7 @@ public class AnimalVaccine {
     private int animalVaccineId;
 
     @Column(name = "vaccination_date")
-    private String vaccinationDate;
+    private Date vaccinationDate;
 
     @ManyToOne()
     @JoinColumn(name = "vaccine_id")
