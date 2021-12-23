@@ -4,6 +4,7 @@ import adopet.project.business.abstracts.AnimalService;
 import adopet.project.core.utilities.results.DataResult;
 import adopet.project.core.utilities.results.Result;
 import adopet.project.entities.concretes.Animal;
+import adopet.project.entities.concretes.AnimalBreed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -78,5 +79,9 @@ public class AnimalsController {
     @PostMapping("/add")
     public Result add(@RequestBody Animal animal) {
         return this.animalService.add(animal);
+    }
+    @PostMapping("/update")
+    public Result update(@RequestBody Animal animal){
+        return this.animalService.update((animal));
     }
 }

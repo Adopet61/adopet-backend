@@ -3,6 +3,7 @@ package adopet.project.api.controllers;
 import adopet.project.business.abstracts.AnimalVaccineService;
 import adopet.project.core.utilities.results.DataResult;
 import adopet.project.core.utilities.results.Result;
+import adopet.project.entities.concretes.AnimalBreed;
 import adopet.project.entities.concretes.AnimalVaccine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,9 @@ public class AnimalVaccinesController {
     @PostMapping("/add")
     public Result add(@RequestBody AnimalVaccine animalVaccine )  {
         return this.animalVaccineService.add(animalVaccine);
-
     }
-
+    @PostMapping("/update")
+    public Result update(@RequestBody AnimalVaccine animalVaccine){
+        return this.animalVaccineService.update((animalVaccine));
+    }
 }

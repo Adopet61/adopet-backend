@@ -38,4 +38,9 @@ public class VaccineManager implements VaccineService {
         this.vaccineDao.save(vaccine);
         return new SuccessResult("Aşı eklendi");
     }
+    @Override
+    public Result update(Vaccine vaccine){
+        this.vaccineDao.save((vaccine));
+        return new SuccessResult("Aşı güncellendi");
+    }
 }

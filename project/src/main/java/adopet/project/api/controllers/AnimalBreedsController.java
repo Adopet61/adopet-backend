@@ -38,6 +38,9 @@ public class AnimalBreedsController {
     @PostMapping("/add")
     public Result add(@RequestBody AnimalBreed animalBreed )  {
         return this.animalBreedService.add(animalBreed);
-
+    }
+    @PostMapping("/update")
+    public Result update(@RequestBody AnimalBreed animalBreed){
+        return this.animalBreedService.update((animalBreed));
     }
 }

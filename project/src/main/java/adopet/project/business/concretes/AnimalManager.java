@@ -123,4 +123,9 @@ public class AnimalManager implements AnimalService {
         this.animalDao.save(animal);
         return new SuccessResult("Ürün eklendi");
     }
+    @Override
+    public Result update(Animal animal){
+        this.animalDao.save(animal);
+        return new SuccessResult("Ürün güncellendi");
+    }
 }
