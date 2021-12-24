@@ -121,11 +121,16 @@ public class AnimalManager implements AnimalService {
     @Override
     public Result add(Animal animal) {
         this.animalDao.save(animal);
-        return new SuccessResult("Ürün eklendi");
+        return new SuccessResult("İlan eklendi");
     }
     @Override
     public Result update(Animal animal){
         this.animalDao.save(animal);
-        return new SuccessResult("Ürün güncellendi");
+        return new SuccessResult("İlan güncellendi");
+    }
+    @Override
+    public Result delete(int animalId){
+        this.animalDao.deleteById(animalId);
+        return new SuccessResult("İlan silindi");
     }
 }

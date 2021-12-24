@@ -1,6 +1,7 @@
 package adopet.project.business.abstracts;
 
 import adopet.project.core.utilities.results.DataResult;
+import adopet.project.core.utilities.results.Result;
 import adopet.project.entities.concretes.Animal;
 
 import java.util.List;
@@ -19,4 +20,5 @@ public interface AnimalService extends BaseEntityService<Animal>{
 
     DataResult<List<Animal>> getByAnimalType_TypeId(int typeId);
     DataResult<List<Animal>> getByAnimalBreed_BreedId(int breedId);
+    Result delete(int animalId);
 }

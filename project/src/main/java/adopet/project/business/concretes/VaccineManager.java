@@ -43,4 +43,9 @@ public class VaccineManager implements VaccineService {
         this.vaccineDao.save((vaccine));
         return new SuccessResult("Aşı güncellendi");
     }
+    @Override
+    public Result delete(int vaccineId){
+        this.vaccineDao.deleteById(vaccineId);
+        return new SuccessResult("Aşı silindi");
+    }
 }

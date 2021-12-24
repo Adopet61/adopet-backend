@@ -43,4 +43,9 @@ public class AnimalBreedsController {
     public Result update(@RequestBody AnimalBreed animalBreed){
         return this.animalBreedService.update((animalBreed));
     }
+    @DeleteMapping("/delete")
+    public Result delete(@RequestParam int breedId){
+        return this.animalBreedService.delete(breedId);
+    }
+
 }

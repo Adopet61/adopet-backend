@@ -54,4 +54,9 @@ public class AnimalBreedManager implements AnimalBreedService {
         this.animalBreedDao.save(animalBreed);
         return new SuccessResult("Irk güncellendi");
     }
+    @Override
+    public Result delete(int breedId){
+        this.animalBreedDao.deleteById(breedId);
+        return new SuccessResult("Irk silindi");
+    }
 }
