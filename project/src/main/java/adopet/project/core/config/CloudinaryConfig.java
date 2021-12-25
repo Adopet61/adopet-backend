@@ -1,4 +1,4 @@
-package adopet.project.config;
+package adopet.project.core.config;
 
 import adopet.project.core.utilities.cloudinary.CloudinaryManager;
 import adopet.project.core.utilities.cloudinary.CloudinaryService;
