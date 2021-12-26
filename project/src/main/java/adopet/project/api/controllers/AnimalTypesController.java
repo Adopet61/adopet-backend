@@ -34,10 +34,12 @@ public class AnimalTypesController {
     public Result add(@RequestBody AnimalType animalType)  {
         return this.animalTypeService.add(animalType);
     }
+
     @PostMapping("/update")
     public Result update(@RequestBody AnimalType animalType){
         return this.animalTypeService.update((animalType));
     }
+
     @DeleteMapping("/delete")
     public Result delete(@RequestParam int typeId){
         return this.animalTypeService.delete(typeId);

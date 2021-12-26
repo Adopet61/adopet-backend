@@ -4,7 +4,6 @@ import adopet.project.core.utilities.results.DataResult;
 import adopet.project.core.utilities.results.Result;
 import adopet.project.entities.concretes.AnimalBreed;
 
-import java.awt.image.RescaleOp;
 import java.util.List;
 
 public interface AnimalBreedService extends BaseEntityService<AnimalBreed>{
