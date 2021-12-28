@@ -29,7 +29,13 @@ public class AnimalVaccinesController {
     @PostMapping("/add")
     public Result add(@RequestBody AnimalVaccine animalVaccine )  {
         return this.animalVaccineService.add(animalVaccine);
-
     }
-
+    @PostMapping("/update")
+    public Result update(@RequestBody AnimalVaccine animalVaccine){
+        return this.animalVaccineService.update((animalVaccine));
+    }
+    @DeleteMapping("/delete")
+    public Result delete(@RequestParam int animalVaccineId){
+        return this.animalVaccineService.delete(animalVaccineId);
+    }
 }

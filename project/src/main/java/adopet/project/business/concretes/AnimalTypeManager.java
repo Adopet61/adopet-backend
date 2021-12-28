@@ -39,4 +39,14 @@ public class AnimalTypeManager implements AnimalTypeService {
         this.animalTypeDao.save(animalType);
         return new SuccessResult("Tür eklendi");
     }
+    @Override
+    public Result update(AnimalType animalType){
+        this.animalTypeDao.save(animalType);
+        return new SuccessResult("Tür güncellendi");
+    }
+    @Override
+    public Result delete(int typeId){
+        this.animalTypeDao.deleteById(typeId);
+        return new SuccessResult("Tür silindi");
+    }
 }

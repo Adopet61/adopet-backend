@@ -33,9 +33,19 @@ public class ImagesController {
         return this.imageService.getByImageId(imageId);
     }
 
+    @GetMapping("/getByAnimalId")
+    public DataResult<Image> getByAnimal_AnimalId(@RequestParam int animalId) {
+        return this.imageService.getByAnimal_AnimalId(animalId);
+    }
+
     @GetMapping("/getAnimalWithImageUrl")
     public DataResult<List<AnimalWithImageDto>> getAnimalWithImageUrl(){
         return this.imageService.getAnimalWithImageUrl();
+    }
+
+    @GetMapping("/getAnimalWithImageUrlByTypeId")
+    public DataResult<List<AnimalWithImageDto>> getAnimalWithImageUrlByAnimal_AnimalType_TypeId(@RequestParam int typeId) {
+        return this.imageService.getAnimalWithImageUrlByAnimal_AnimalType_TypeId(typeId);
     }
 
     @PostMapping("/upload")

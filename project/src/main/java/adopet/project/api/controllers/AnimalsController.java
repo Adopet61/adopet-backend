@@ -79,4 +79,15 @@ public class AnimalsController {
     public Result add(@RequestBody Animal animal) {
         return this.animalService.add(animal);
     }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody Animal animal){
+        return this.animalService.update((animal));
+    }
+
+    @DeleteMapping("/delete")
+    public Result delete(@RequestParam int animalId){
+        return this.animalService.delete(animalId);
+    }
+
 }

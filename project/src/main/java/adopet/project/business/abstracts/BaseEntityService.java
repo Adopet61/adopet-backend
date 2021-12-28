@@ -8,4 +8,5 @@ import java.util.List;
 public interface BaseEntityService<T> {
     DataResult<List<T>> getAll();
     Result add(T entity);
+    Result update(T entity);
 }

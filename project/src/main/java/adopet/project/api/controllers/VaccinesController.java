@@ -34,4 +34,14 @@ public class VaccinesController {
     public Result add(@RequestBody Vaccine vaccine) {
         return this.vaccineService.add(vaccine);
     }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody Vaccine vaccine){
+        return this.vaccineService.update((vaccine));
+    }
+
+    @DeleteMapping("/delete")
+    public Result delete(@RequestParam int vaccineId){
+        return this.vaccineService.delete(vaccineId);
+    }
 }

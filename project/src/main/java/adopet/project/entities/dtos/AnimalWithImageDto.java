@@ -11,5 +11,8 @@ public class AnimalWithImageDto {
 
     private int animalId;
     private String animalName;
+    private int typeId;
+    private String typeName;
+    private String breedName;
     private String url;
 }

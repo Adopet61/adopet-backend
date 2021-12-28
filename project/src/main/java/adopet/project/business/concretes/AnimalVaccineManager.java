@@ -33,4 +33,14 @@ public class AnimalVaccineManager implements AnimalVaccineService {
         this.animalVaccineDao.save(animalVaccine);
         return new SuccessResult("Hayvan ve olduğu aşı eklendi");
     }
+    @Override
+    public Result update(AnimalVaccine animalVaccine){
+        this.animalVaccineDao.save(animalVaccine);
+        return new SuccessResult("Hayvan ve olduğu aşı güncellendi");
+    }
+    @Override
+    public Result delete(int animalVaccinesId){
+        this.animalVaccineDao.deleteById(animalVaccinesId);
+        return new SuccessResult("Hayvan ve olduğu aşı silindi");
+    }
 }

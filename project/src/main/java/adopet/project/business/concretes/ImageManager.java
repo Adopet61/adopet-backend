@@ -44,8 +44,23 @@ public class ImageManager implements ImageService {
     }
 
     @Override
+    public DataResult<Image> getByAnimal_AnimalId(int animalId) {
+        return new SuccessDataResult<Image>(this.imageDao.getByAnimal_AnimalId(animalId), "Tek animal getirildi");
+    }
+
+    @Override
     public DataResult<List<AnimalWithImageDto>> getAnimalWithImageUrl() {
         return new SuccessDataResult<List<AnimalWithImageDto>>(this.imageDao.getAnimalWithImageUrl(),"Data listelendi");
+    }
+
+    @Override
+    public DataResult<List<AnimalWithImageDto>> getAnimalWithImageUrlByAnimal_AnimalType_TypeId(int typeId) {
+        if (this.imageDao.getAnimalWithImageUrlByAnimal_AnimalType_TypeId(typeId).isEmpty()) {
+            return new ErrorDataResult<List<AnimalWithImageDto>>("Girdiğiniz sayıda hayvan türü yoktur");
+        }else {
+            return new SuccessDataResult<List<AnimalWithImageDto>>
+                    (this.imageDao.getAnimalWithImageUrlByAnimal_AnimalType_TypeId(typeId), "Türüne göre hayvanlar listelendi");
+        }
     }
 
     @Override
