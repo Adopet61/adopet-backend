@@ -17,15 +17,15 @@ import javax.persistence.*;
 public class MakeAdoptForm {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int formId;
 
     @Column(name = "fname")
-    private String firstNAme;
+    private String firstName;
 
     @Column(name = "lname")
-    private String lastNAme;
+    private String lastName;
 
     @Column(name = "phone_number")
     private String phoneNumber;
