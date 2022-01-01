@@ -26,8 +26,8 @@ public class AdoptFormsController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody AdoptForm adoptForm){
-        return this.adoptFormService.add(adoptForm);
+    public ResponseEntity<?> add(@Valid @RequestBody AdoptForm adoptForm){
+        return ResponseEntity.ok(this.adoptFormService.add(adoptForm));
     }
 
     @PostMapping("/delete")
@@ -63,5 +63,16 @@ public class AdoptFormsController {
     @GetMapping("/getByComment")
     public DataResult<List<AdoptForm>> getByComment(String comment) {
         return this.adoptFormService.getByComment(comment);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class) //AOP
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDataResult<Object> handValidationException(MethodArgumentNotValidException exceptions){
+        Map<String,String> validationErrors = new HashMap<String,String>();
+        for (FieldError fieldError: exceptions.getBindingResult().getFieldErrors()){
+            validationErrors.put(fieldError.getField(),fieldError.getDefaultMessage());
+        }
+        ErrorDataResult<Object> errors = new ErrorDataResult<Object>(validationErrors,"Doğrulama hataları");
+        return errors;
     }
 }

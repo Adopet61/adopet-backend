@@ -87,12 +87,23 @@ public class MakeAdoptFormsController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody MakeAdoptForm makeAdoptForm){
-        return this.makeAdoptFormService.add(makeAdoptForm);
+    public ResponseEntity<?> add(@Valid @RequestBody MakeAdoptForm makeAdoptForm){
+        return ResponseEntity.ok(this.makeAdoptFormService.add(makeAdoptForm));
     }
 
     @PostMapping("/delete")
     public Result delete(@RequestParam int id){
         return this.makeAdoptFormService.delete(id);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class) //AOP
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDataResult<Object> handValidationException(MethodArgumentNotValidException exceptions){
+        Map<String,String> validationErrors = new HashMap<>();
+        for (FieldError fieldError: exceptions.getBindingResult().getFieldErrors()){
+            validationErrors.put(fieldError.getField(),fieldError.getDefaultMessage());
+        }
+        ErrorDataResult<Object> errors = new ErrorDataResult<>(validationErrors,"Doğrulama hataları");
+        return errors;
     }
 }
