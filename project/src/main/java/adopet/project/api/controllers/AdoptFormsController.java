@@ -30,6 +30,11 @@ public class AdoptFormsController {
         return this.adoptFormService.add(adoptForm);
     }
 
+    @PostMapping("/delete")
+    public Result delete(@RequestParam int id){
+        return this.adoptFormService.delete(id);
+    }
+
     @GetMapping("/getByFirstName")
     public DataResult<List<AdoptForm>> getByFirstName(@RequestParam String firstName){
         return this.adoptFormService.getByFirstName(firstName);

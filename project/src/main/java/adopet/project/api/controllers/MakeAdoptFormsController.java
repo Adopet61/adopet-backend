@@ -90,4 +90,9 @@ public class MakeAdoptFormsController {
     public Result add(@RequestBody MakeAdoptForm makeAdoptForm){
         return this.makeAdoptFormService.add(makeAdoptForm);
     }
+
+    @PostMapping("/delete")
+    public Result delete(@RequestParam int id){
+        return this.makeAdoptFormService.delete(id);
+    }
 }
