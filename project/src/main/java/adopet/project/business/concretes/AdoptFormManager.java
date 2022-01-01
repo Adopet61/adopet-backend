@@ -30,9 +30,14 @@ public class AdoptFormManager implements AdoptFormService {
 
     @Override
     public Result add(AdoptForm adoptForm) {
-        this.adoptFormDao.save(adoptForm); //save ekleme ve güncelleme yapmaya yarar
+        this.adoptFormDao.save(adoptForm);
         return new SuccessResult("Form eklendi");
     }
+
+    @Override
+    public Result delete(int id){
+        this.adoptFormDao.deleteById(id);
+        return new SuccessResult("Form silindi");
 
     @Override
     public DataResult<List<AdoptForm>> getByFirstName(String firstName) {

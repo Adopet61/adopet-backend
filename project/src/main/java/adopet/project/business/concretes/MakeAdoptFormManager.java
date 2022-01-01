@@ -36,6 +36,12 @@ public class MakeAdoptFormManager implements MakeAdoptFormService {
     }
 
     @Override
+    public Result delete(int id){
+        this.makeAdoptFormDao.deleteById(id);
+        return new SuccessResult("Form silindi");
+    }
+
+    @Override
     public DataResult<List<MakeAdoptForm>> getByFirstName(String firstName) {
         return new SuccessDataResult<List<MakeAdoptForm>>(this.makeAdoptFormDao.getByFirstName(firstName),"Data listelendi");
     }
