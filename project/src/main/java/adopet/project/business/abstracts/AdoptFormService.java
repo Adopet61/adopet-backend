@@ -8,6 +8,7 @@ import java.util.List;
 public interface AdoptFormService {
     DataResult<List<AdoptForm>> getAll();
     Result add(AdoptForm adoptForm);
+    Result delete(int id);
 
     DataResult<List<AdoptForm>> getByFirstName(String firstName);
     DataResult<List<AdoptForm>> getByLastName(String lastName);
