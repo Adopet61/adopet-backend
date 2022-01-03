@@ -30,7 +30,7 @@ public class AdoptFormManager implements AdoptFormService {
 
     @Override
     public Result add(AdoptForm adoptForm) {
-        this.adoptFormDao.save(adoptForm);
+        this.adoptFormDao.save(adoptForm); //save ekleme ve güncelleme yapmaya yarar
         return new SuccessResult("Form eklendi");
     }
 
@@ -38,6 +38,7 @@ public class AdoptFormManager implements AdoptFormService {
     public Result delete(int id){
         this.adoptFormDao.deleteById(id);
         return new SuccessResult("Form silindi");
+    }
 
     @Override
     public DataResult<List<AdoptForm>> getByFirstName(String firstName) {

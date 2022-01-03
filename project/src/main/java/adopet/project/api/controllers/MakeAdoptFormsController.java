@@ -2,13 +2,20 @@ package adopet.project.api.controllers;
 
 import adopet.project.business.abstracts.MakeAdoptFormService;
 import adopet.project.core.utilities.results.DataResult;
+import adopet.project.core.utilities.results.ErrorDataResult;
 import adopet.project.core.utilities.results.Result;
-import adopet.project.core.utilities.results.SuccessDataResult;
 import adopet.project.entities.forms.MakeAdoptForm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/makeAdoptForms")

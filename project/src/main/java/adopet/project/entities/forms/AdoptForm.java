@@ -1,18 +1,17 @@
 package adopet.project.entities.forms;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Data
 @Table(name="adoption_forms")
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 
 public class AdoptForm {
 
