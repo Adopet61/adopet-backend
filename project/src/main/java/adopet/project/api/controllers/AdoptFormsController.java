@@ -39,7 +39,7 @@ public class AdoptFormsController {
         return ResponseEntity.ok(this.adoptFormService.add(adoptForm));
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public Result delete(@RequestParam int id){
         return this.adoptFormService.delete(id);
     }
