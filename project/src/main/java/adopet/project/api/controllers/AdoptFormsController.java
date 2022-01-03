@@ -34,7 +34,8 @@ public class AdoptFormsController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@Valid @RequestBody AdoptForm adoptForm){
+    public ResponseEntity<?> //eklenen verinin kısıtlamalardan geçip geçmeyeceğini bilemediğimiz için ? sembolünü koyduk.
+    add(@Valid @RequestBody AdoptForm adoptForm){
         return ResponseEntity.ok(this.adoptFormService.add(adoptForm));
     }
 
@@ -73,9 +74,11 @@ public class AdoptFormsController {
         return this.adoptFormService.getByComment(comment);
     }
 
+    //exception durumunu kontrol etmek için
     @ExceptionHandler(MethodArgumentNotValidException.class) //AOP
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorDataResult<Object> handValidationException(MethodArgumentNotValidException exceptions){
+    @ResponseStatus(HttpStatus.BAD_REQUEST) //default olara 500 hatası dönmesi için
+    public ErrorDataResult<Object> //dönecek hata tipi belli olmadığı için object dedik
+    handValidationException(MethodArgumentNotValidException exceptions){
         Map<String,String> validationErrors = new HashMap<String,String>();
         for (FieldError fieldError: exceptions.getBindingResult().getFieldErrors()){
             validationErrors.put(fieldError.getField(),fieldError.getDefaultMessage());

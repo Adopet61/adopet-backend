@@ -21,8 +21,8 @@ public class AdoptForm {
     private int formId;
 
     @Column(name = "fname")
-    @NotBlank
-    @NotNull
+    @NotBlank //boş geçilemez
+    @NotNull //veri gelmeden olmaz
     @Size(max = 20,message = "İsim uzunluğu en fazla 20 olabilir.")
     private String firstName;
 
