@@ -39,6 +39,7 @@ public class MakeAdoptForm {
 
     @Column(name = "email")
     @Email
+    @Size(max = 50)
     private String email;
 
     @Column(name = "pname")
@@ -46,18 +47,22 @@ public class MakeAdoptForm {
     private String animalName;
 
     @Column(name = "type")
+    @Size(max = 5)
     private String animalType;
 
     @Column(name = "breed")
+    @Size(max = 20)
     private String animalBreed;
 
     @Column(name = "vaccine")
+    @Size(max = 20)
     private String vaccine;
 
     @Column(name = "year_of_birth")
     private int yearOfBirth;
 
     @Column(name = "sex")
+    @Size(max = 5)
     private String animalSex;
 
     @Column(name = "barren")
