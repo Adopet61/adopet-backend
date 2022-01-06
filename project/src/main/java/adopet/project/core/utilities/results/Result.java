@@ -6,13 +6,13 @@ public class Result {
 
     public Result(boolean success) {
         this.success = success;
-    }
+    } //Başarılı mı
 
-    public Result(boolean success, String message) {
+    public Result(boolean success, String message) { //Başarılı mı ve işlem sonucundaki mesaj
         this(success);
         this.message = message;
     }
-
+    //Dışarıdan erişim için getter
     public boolean isSuccess() {
         return this.success;
     }

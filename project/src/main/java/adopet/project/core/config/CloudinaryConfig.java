@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class CloudinaryConfig {
 
     @Bean
-    public Cloudinary cloudinaryAccount() {
+    public Cloudinary cloudinaryAccount() { //Cloudinary hesap bilgileri
         return new Cloudinary(ObjectUtils.asMap(
                 "cloud_name", "adopet",
                 "api_key", "443866898949355",

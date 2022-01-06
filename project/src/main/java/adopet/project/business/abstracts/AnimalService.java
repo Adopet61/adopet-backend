@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface AnimalService extends BaseEntityService<Animal>{
     DataResult<Animal> getById(int animalId);
-    DataResult<List<Animal>> getAllSorted();
-    DataResult<List<Animal>> getAll(int pageNo, int pageSize);
+    DataResult<List<Animal>> getAllSorted(); //Datayı istediğim şarta göre sıralama
+    DataResult<List<Animal>> getAll(int pageNo, int pageSize); //Sayfalama
 
     DataResult<List<Animal>> getByGender(String gender);
     DataResult<List<Animal>> getByYearOfBirth(int yearOfBirth);

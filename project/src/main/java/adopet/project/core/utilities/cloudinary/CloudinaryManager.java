@@ -26,10 +26,10 @@ public class CloudinaryManager implements CloudinaryService{
 
     @Override
     public DataResult<?> upload(MultipartFile multipartFile) {
-        try {
+        try { //Resim yükleme
             Map<?,?> uploadResult = cloudinary.uploader().upload(multipartFile.getBytes(), ObjectUtils.emptyMap());
             return new SuccessDataResult<>(uploadResult);
-        } catch (IOException e) {
+        } catch (IOException e) { //Oluşan hatayı göstermek
             e.printStackTrace();
             return new ErrorDataResult<>();
         }
@@ -41,10 +41,10 @@ public class CloudinaryManager implements CloudinaryService{
         List<String> publicIdsOfImages = new ArrayList<String>();
         publicIdsOfImages.add(publicIdOfImage);
 
-        try {
+        try { //Cloudinaryden publicID'ye göre resmi siler
             Map<?, ?> deleteResult = cloudinary.api().deleteResources(publicIdsOfImages, ObjectUtils.emptyMap());
             return new SuccessDataResult<>(deleteResult);
-        } catch (Throwable e) {
+        } catch (Throwable e) { //Oluşan hatayı göstermek
             e.printStackTrace();
             return new ErrorDataResult<>();
         }

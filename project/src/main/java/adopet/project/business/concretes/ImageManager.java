@@ -65,12 +65,12 @@ public class ImageManager implements ImageService {
 
     @Override
     public Result upload(int animalId, MultipartFile file) {
-        Map<?, ?> uploadImage = (Map<?, ?>) cloudinaryService.upload(file).getData();
+        Map<?, ?> uploadImage = (Map<?, ?>) cloudinaryService.upload(file).getData(); //Resimi yükleme işlemi yapar
         Image image = new Image();
-        image.setAnimal(animalService.getById(animalId).getData());
-        image.setUrl(uploadImage.get("url").toString());
+        image.setAnimal(animalService.getById(animalId).getData()); //animalId'yi veritabanında image'ın animalId'sine setler
+        image.setUrl(uploadImage.get("url").toString()); //Resimin url'sini veritabanında image'ın url'sine setler
 
-        return add(image);
+        return add(image); //Ekleme
     }
 
     @Override
@@ -82,14 +82,14 @@ public class ImageManager implements ImageService {
     @Override
     public Result delete(int imageId) {
 
-        Image image = getByImageId(imageId).getData();
+        Image image = getByImageId(imageId).getData(); //Girilen imageId'ye ait veriyi getirir
 
-        String[] splitImageUrlArray = image.getUrl().split("/");
-        int indexOfExtension = splitImageUrlArray[splitImageUrlArray.length - 1].indexOf(".");
-        String publicIdOfImage = splitImageUrlArray[splitImageUrlArray.length - 1].substring(0, indexOfExtension);
+        String[] splitImageUrlArray = image.getUrl().split("/"); // Url'i ayırır
+        int indexOfExtension = splitImageUrlArray[splitImageUrlArray.length - 1].indexOf("."); //.'dan öncesini ayırır
+        String publicIdOfImage = splitImageUrlArray[splitImageUrlArray.length - 1].substring(0, indexOfExtension); //Resimin publicId'sini bulur
 
-        cloudinaryService.delete(publicIdOfImage);
-        imageDao.deleteById(imageId);
+        cloudinaryService.delete(publicIdOfImage); //publicId'yi cloudinary hesabından siler
+        imageDao.deleteById(imageId); //imageId'yi veritabanından siler
         return new SuccessResult("Resim silindi.");
     }
 }
