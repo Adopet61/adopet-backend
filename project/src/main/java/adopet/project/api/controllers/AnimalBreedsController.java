@@ -40,9 +40,9 @@ public class AnimalBreedsController {
         return this.animalBreedService.add(animalBreed);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Result update(@RequestBody AnimalBreed animalBreed){
-        return this.animalBreedService.update((animalBreed));
+        return this.animalBreedService.update(animalBreed);
     }
 
     @DeleteMapping("/delete")

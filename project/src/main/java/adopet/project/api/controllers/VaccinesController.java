@@ -21,7 +21,7 @@ public class VaccinesController {
         this.vaccineService = vaccineService;
     }
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     public DataResult<List<Vaccine>> getAll() {
         return this.vaccineService.getAll();
     }
@@ -35,9 +35,9 @@ public class VaccinesController {
         return this.vaccineService.add(vaccine);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Result update(@RequestBody Vaccine vaccine){
-        return this.vaccineService.update((vaccine));
+        return this.vaccineService.update(vaccine);
     }
 
     @DeleteMapping("/delete")

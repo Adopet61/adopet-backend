@@ -21,22 +21,22 @@ public class AnimalsController {
         this.animalService = animalService;
     }
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     public DataResult<List<Animal>> getAll() {
         return this.animalService.getAll();
     }
 
-    @GetMapping("/getbyid")
+    @GetMapping("/getById")
     public DataResult<Animal> getById(@RequestParam int animalId) {
         return this.animalService.getById(animalId);
     }
 
-    @GetMapping("/getbygender")
+    @GetMapping("/getByGender")
     public DataResult<List<Animal>> getByGender(@RequestParam String gender) {
         return this.animalService.getByGender(gender);
     }
 
-    @GetMapping("/getbyyearofbirth")
+    @GetMapping("/getByYearOfBirth")
     public DataResult<List<Animal>> getByYearOfBirth(@RequestParam int yearOfBirth) {
         return this.animalService.getByYearOfBirth(yearOfBirth);
     }
@@ -80,9 +80,9 @@ public class AnimalsController {
         return this.animalService.add(animal);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Result update(@RequestBody Animal animal){
-        return this.animalService.update((animal));
+        return this.animalService.update(animal);
     }
 
     @DeleteMapping("/delete")

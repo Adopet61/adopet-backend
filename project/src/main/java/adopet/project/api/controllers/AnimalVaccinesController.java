@@ -21,7 +21,7 @@ public class AnimalVaccinesController {
         this.animalVaccineService = animalVaccineService;
     }
 
-    @GetMapping("/getallAnimalVaccines")
+    @GetMapping("/getAllAnimalVaccines")
     public DataResult<List<AnimalVaccine>> getAll() {
         return this.animalVaccineService.getAll();
     }
@@ -30,9 +30,9 @@ public class AnimalVaccinesController {
     public Result add(@RequestBody AnimalVaccine animalVaccine )  {
         return this.animalVaccineService.add(animalVaccine);
     }
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Result update(@RequestBody AnimalVaccine animalVaccine){
-        return this.animalVaccineService.update((animalVaccine));
+        return this.animalVaccineService.update(animalVaccine);
     }
     @DeleteMapping("/delete")
     public Result delete(@RequestParam int animalVaccineId){

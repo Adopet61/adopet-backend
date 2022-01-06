@@ -39,7 +39,7 @@ public class AnimalManager implements AnimalService {
     @Override
     public DataResult<List<Animal>> getByGender(String gender) {
         if (this.animalDao.getByGender(gender).isEmpty()){
-            return new ErrorDataResult<List<Animal>>("Cinsiyeti yanlış yazdınız. Male ya da Female olarak yazınız");
+            return new ErrorDataResult<List<Animal>>("Cinsiyeti yanlış yazdınız. Erkek ya da Dişi olarak yazınız");
         }else {
             return new SuccessDataResult<List<Animal>>
                     (this.animalDao.getByGender(gender), "Cinsiyete göre data listelendi");

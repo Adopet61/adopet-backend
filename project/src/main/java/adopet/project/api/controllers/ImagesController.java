@@ -23,7 +23,7 @@ public class ImagesController {
         this.imageService = imageService;
     }
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     public DataResult<List<Image>> getAll() {
         return this.imageService.getAll();
     }

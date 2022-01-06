@@ -35,9 +35,9 @@ public class AnimalTypesController {
         return this.animalTypeService.add(animalType);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Result update(@RequestBody AnimalType animalType){
-        return this.animalTypeService.update((animalType));
+        return this.animalTypeService.update(animalType);
     }
 
     @DeleteMapping("/delete")
